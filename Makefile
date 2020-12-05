@@ -6,7 +6,7 @@
 #    By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/30 10:10:44 by mhori             #+#    #+#              #
-#    Updated: 2020/12/06 02:19:17 by mhori            ###   ########.fr        #
+#    Updated: 2020/12/06 02:21:32 by mhori            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -160,21 +160,6 @@ SRCS = \
 	$(CONVERT_SRCS)		\
 	$(PRINTF_SRCS)	\
 	$(GNL_SRCS)
-
-vpath %.c \
-	$(SRC_DIR)	\
-	$(SRC_LST_DIR)	\
-	$(SRC_MATH_DIR)	\
-	$(SRC_MEMORY_DIR)	\
-	$(SRC_STRING_DIR)	\
-	$(SRC_TYPE_DIR)	\
-	$(SRC_WRITE_DIR)	\
-	$(SRC_UTF8_DIR)	\
-	$(SRC_DTOA_DIR)	\
-	$(SRC_BIGINT_DIR)	\
-	$(SRC_PRINTF_DIR)	\
-	$(SRC_PRINTF_UTIL_DIR)	\
-	$(SRC_GNL_DIR)
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
