@@ -6,11 +6,12 @@
 /*   By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:09:09 by mhori             #+#    #+#             */
-/*   Updated: 2020/12/06 01:13:40 by mhori            ###   ########.fr       */
+/*   Updated: 2020/12/06 02:58:32 by mhori            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
+#include "../../includes/ft_string.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

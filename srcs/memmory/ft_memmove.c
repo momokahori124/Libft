@@ -6,11 +6,12 @@
 /*   By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 18:36:30 by mhori             #+#    #+#             */
-/*   Updated: 2020/12/06 01:13:40 by mhori            ###   ########.fr       */
+/*   Updated: 2020/12/06 02:57:31 by mhori            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
+#include "../../includes/ft_bzero.h"
 
 void	*ft_memmove(void *b1, const void *b2, size_t n)
 {

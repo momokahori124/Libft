@@ -6,11 +6,12 @@
 /*   By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 20:15:00 by mhori             #+#    #+#             */
-/*   Updated: 2020/12/06 01:13:40 by mhori            ###   ########.fr       */
+/*   Updated: 2020/12/06 02:58:49 by mhori            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
+#include "../../includes/ft_string.h"
 
 int				isset(char c, char const *s)
 {

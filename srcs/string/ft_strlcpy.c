@@ -6,11 +6,12 @@
 /*   By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 16:42:05 by mhori             #+#    #+#             */
-/*   Updated: 2020/12/06 01:13:40 by mhori            ###   ########.fr       */
+/*   Updated: 2020/12/06 02:58:23 by mhori            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
+#include "../../includes/ft_string.h"
 
 size_t		ft_strlcpy(char *dest, const char *src, size_t size)
 {

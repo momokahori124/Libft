@@ -6,11 +6,12 @@
 /*   By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 21:20:18 by mhori             #+#    #+#             */
-/*   Updated: 2020/12/06 01:13:40 by mhori            ###   ########.fr       */
+/*   Updated: 2020/12/06 02:56:45 by mhori            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
+#include "../../includes/ft_lst.h"
 
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

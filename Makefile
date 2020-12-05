@@ -6,7 +6,7 @@
 #    By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/30 10:10:44 by mhori             #+#    #+#              #
-#    Updated: 2020/12/06 02:21:32 by mhori            ###   ########.fr        #
+#    Updated: 2020/12/06 02:50:18 by mhori            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -168,23 +168,21 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 all : $(NAME)
 
 clean :
-	@rm -rf $(OBJ_DIR)
-	@printf "$(LF) 🗑  $(DELETE)Delete Object files...\n"
+	rm -rf $(OBJ_DIR)
 
 fclean : clean
-	@$(RM) -rf $(NAME) 2> /dev/null
-	@printf "$(LF) 🗑  $(DELETE)Delete $(NAME)\n"
+	$(RM) -rf $(NAME) 2> /dev/null
+
 
 re : fclean all
 
 $(OBJS) : $(SRCS)
-	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CDEBUG) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
-	@printf "$(LF) 🚧  $(FG_TEXT)Create $@ $(FG_TEXT)from $<"
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+
 
 $(NAME) : $(HEADERS) $(OBJS)
-	@printf "$(LF) 🎉  $(SUCCESS)Successfully Created Object files !"
-	@$(AR) $(ARFLAGS) $@ $(OBJS)
-	@printf "$(LF) 🎉  $(SUCCESS)Successfully Archived $(SUCCESS)$@ !\n"
+	$(AR) $(ARFLAGS) $@ $(OBJS)
+
 
 .PHONY: all clean fclean re
