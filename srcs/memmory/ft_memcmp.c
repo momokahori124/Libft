@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: tjinichi <tjinichi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 19:16:00 by mhori             #+#    #+#             */
-/*   Updated: 2020/12/06 02:57:24 by mhori            ###   ########.fr       */
+/*   Updated: 2020/12/08 00:14:01 by tjinichi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
-#include "../../includes/ft_bzero.h"
 
 int	ft_memcmp(const void *b1, const void *b2, size_t n)
 {
