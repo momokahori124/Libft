@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: tjinichi <tjinichi@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/30 10:10:44 by mhori             #+#    #+#              #
-#    Updated: 2020/12/06 02:50:18 by mhori            ###   ########.fr        #
+#    Updated: 2020/12/08 00:13:29 by tjinichi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,16 +150,16 @@ WRITE_SRCS = $(addprefix $(WRITE_DIR)/, \
 )
 
 SRCS = \
-	$(LST_SRCS)	\
-	$(MATH_SRCS)	\
+	$(LST_SRCS)		\
 	$(MEMMORY_SRCS)	\
 	$(STRING_SRCS)	\
 	$(ISWHAT_SRCS)	\
 	$(UTF8_SRCS)	\
 	$(WRITE_SRCS)	\
-	$(CONVERT_SRCS)		\
+	$(CONVERT_SRCS)	\
 	$(PRINTF_SRCS)	\
-	$(GNL_SRCS)
+	$(GNL_SRCS)		\
+	$(MATH_SRCS)	\
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
@@ -176,10 +176,39 @@ fclean : clean
 
 re : fclean all
 
-$(OBJS) : $(SRCS)
+SRCS = \
+	$(LST_SRCS)		\
+	$(MEMMORY_SRCS)	\
+	$(STRING_SRCS)	\
+	$(ISWHAT_SRCS)	\
+	$(UTF8_SRCS)	\
+	$(WRITE_SRCS)	\
+	$(CONVERT_SRCS)	\
+	$(PRINTF_SRCS)	\
+	$(GNL_SRCS)		\
+	$(MATH_SRCS)	\
+
+$(OBJ_DIR)/%.o : $(LST_DIR)/%.c
 	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
-
+$(OBJ_DIR)/%.o : $(MEMMORY_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+$(OBJ_DIR)/%.o : $(STRING_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+$(OBJ_DIR)/%.o : $(ISWHAT_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+$(OBJ_DIR)/%.o : $(UTF8_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+$(OBJ_DIR)/%.o : $(WRITE_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+$(OBJ_DIR)/%.o : $(CONVERT_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+$(OBJ_DIR)/%.o : $(PRINTF_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+$(OBJ_DIR)/%.o : $(GNL_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+$(OBJ_DIR)/%.o : $(MATH_DIR)/%.c
+	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
 
 $(NAME) : $(HEADERS) $(OBJS)
 	$(AR) $(ARFLAGS) $@ $(OBJS)
