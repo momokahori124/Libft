@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: tjinichi <tjinichi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 18:04:09 by mhori             #+#    #+#             */
-/*   Updated: 2020/12/06 02:57:27 by mhori            ###   ########.fr       */
+/*   Updated: 2020/12/08 00:14:04 by tjinichi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
-#include "../../includes/ft_bzero.h"
 
 void	*ft_memcpy(void *s1, const void *s2, size_t n)
 {

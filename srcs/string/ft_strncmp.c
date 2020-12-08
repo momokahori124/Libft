@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: tjinichi <tjinichi@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 15:03:52 by mhori             #+#    #+#             */
-/*   Updated: 2020/12/06 02:58:36 by mhori            ###   ########.fr       */
+/*   Updated: 2020/12/08 00:17:50 by tjinichi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
 #include "../../includes/ft_string.h"
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
