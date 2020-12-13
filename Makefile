@@ -6,35 +6,38 @@
 #    By: mhori <mhori@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/30 10:10:44 by mhori             #+#    #+#              #
-#    Updated: 2020/12/08 16:38:40 by mhori            ###   ########.fr        #
+#    Updated: 2020/12/14 00:36:54 by mhori            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Color
-CL_BOLD   = \e[1m
-CL_DIM    = \e[2m
-CL_UDLINE = \e[4m
+SHELL=/bin/bash
 
-NO_COLOR = \e[0m
+# ============================ COLOR =========================
 
-BG_TEXT = \e[48;2;45;55;72m
-BG_BLACK = \e[48;2;30;31;33m
+RESET		= \033[0m
+RED			= \033[0;31m
+GREEN		= \033[0;32m
+YELLOW		= \033[0;33m
+BLUE		= \033[0;34m
+MAGENT		= \033[0;35m
+CYAAN		= \033[0;36m
+WHITE		= \033[0;37m
+B_RESET		= \033[0;49m
+B_YELLOW	= \033[0;43m
+B_CYAAN		= \033[0;46m
+BOLD		= \033[1m
+UNDER_LINE	= \033[0;4m
 
-FG_WHITE = $(NO_COLOR)\e[0;37m
-FG_TEXT = $(NO_COLOR)\x1b[35m
-FG_TEXT_PRIMARY = $(NO_COLOR)$(CL_BOLD)\x1b[36m
-SUCCESS = $(NO_COLOR)\x1b[32m
-DELETE = $(NO_COLOR)\x1b[31m
+# ============================================================
 
-LF = \e[1K\r$(NO_COLOR)
-CRLF= \n$(LF)
+NORM = norminette
 
 # for compile
 
 NAME = libft.a
 
 AR	= ar
-ARFLAGS	= r
+ARFLAGS	= rcs
 
 CC	= gcc
 CFLAGS	= -Wall -Wextra -Werror
@@ -165,17 +168,6 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 # OBJS = $(SRCS:.c=.o)
 
-all : $(NAME)
-
-clean :
-	rm -rf $(OBJ_DIR)
-
-fclean : clean
-	$(RM) -rf $(NAME) 2> /dev/null
-
-
-re : fclean all
-
 SRCS = \
 	$(LST_SRCS)		\
 	$(MEMMORY_SRCS)	\
@@ -188,30 +180,67 @@ SRCS = \
 	$(GNL_SRCS)		\
 	$(MATH_SRCS)	\
 
+# $(OBJDIR)/%.o : $(SRCDIR)/%.c
+# 	@mkdir -p $(OBJDIR)
+# 	@$(CC) $(CFLAGS) -c -o $@ $<
+
+# ============================ Increment % ===================
+
+T		=	$(words ${OBJS})
+N		=	0
+# words = 文字列の個数を数えます
+# eval = 文字列を評価します
+C		=	$(words $N)${eval N += 1}
+PER	=	"[`expr $C  '*' 100 / $T`%]"
+
+PRINT_PERCENT	= @printf "%-60b\r" "$(YELLOW)$(PER) Compiling  $(RESET)$(UNDER_LINE)"$@"$(RESET)"
+
+# ============================================================
+
 $(OBJ_DIR)/%.o : $(LST_DIR)/%.c
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(MEMMORY_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(STRING_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(ISWHAT_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(UTF8_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(WRITE_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(CONVERT_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(PRINTF_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(GNL_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
 $(OBJ_DIR)/%.o : $(MATH_DIR)/%.c
-	$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	@$(CC) $(CFLAGS) -I include/libft.h -c $< -o $@
+	$(PRINT_PERCENT)
+
+all : $(NAME)
+
+clean :
+	@rm -rf $(OBJ_DIR)
+
+fclean : clean
+	@$(RM) -rf $(NAME)
+
+re : fclean all
 
 $(NAME) : $(HEADERS) $(OBJS)
-	$(AR) $(ARFLAGS) $@ $(OBJS)
+	@$(AR) $(ARFLAGS) $@ $(OBJS)
+	@printf "\r                                                             \r$(GREEN)$(BOLD)created libft.a 🎉$(RESET)\n"
 
-
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re norminette
